@@ -1,0 +1,6 @@
+curl $@ -w "
+
+Connect time: "%{time_connect}"seg
+Transfer time: "%{time_starttransfer}"seg
+Total time: "%{time_total}"seg
+"

@@ -1,0 +1,1 @@
+docker run --rm -it -p 8001:80 -w /usr/src/myapp/public -v $PWD:/usr/src/myapp php:7.3.0RC2-alpine3.8 php -S 0.0.0.0:80

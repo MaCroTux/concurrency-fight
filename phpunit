@@ -1,0 +1,1 @@
+docker run --rm -w /usr/src/myapp -v /Users/macro/proyect/phpslim-test/concurrency-slim:/usr/src/myapp php:7.3.0RC2-alpine3.8 php vendor/bin/phpunit
