@@ -1,6 +1,6 @@
 # Concurrency whit abstraction
 
-This is a small sped testing between Spaghetti code and Abstraction code, fight
+This is a small speed testing between Spaghetti code and Abstraction code, fight
 
 ## In the PhpUnit under docker
 
