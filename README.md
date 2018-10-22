@@ -52,15 +52,6 @@ Total time: 0.162296seg
 * Abstraction method
 `Time: 161.4 ms`
 
-## Reflection
-
-Looking at these tests, is it necessary to write Spaghetti code to 
-accelerate the platforms with concurrency?
-
-## Run the server
-`./run`
-
-
 # Using bombardier a HTTP(S) benchmarking tool
 
 > Url: https://github.com/codesenberg/bombardier
@@ -87,3 +78,11 @@ Statistics        Avg      Stdev        Max
     others - 0
   Throughput:     2.84KB/s   
 ```
+
+## Reflection
+
+Looking at these tests, is it necessary to write Spaghetti code to 
+accelerate the platforms with concurrency?
+
+## Run the server
+`docker-compose up`
