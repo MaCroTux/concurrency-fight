@@ -16,3 +16,18 @@ services:
         volumes:
             - .:/var/www
             - logs:/var/www/logs
+
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - ./data_db:/docker-entrypoint-initdb.d
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+        - 8088:8080
