@@ -59,3 +59,31 @@ accelerate the platforms with concurrency?
 
 ## Run the server
 `./run`
+
+
+# Using bombardier a HTTP(S) benchmarking tool
+
+> Url: https://github.com/codesenberg/bombardier
+
+```
+./bombardier-darwin-amd64 -c 100 -n 20 http://localhost:8080/implement && ./bombardier-darwin-amd64 -c 100 -n 20 http://localhost:8080/abstract 
+Bombarding http://localhost:8080/implement with 20 request(s) using 100 connection(s)
+ 20 / 20 [========================================================================================================================================================================================================================================] 100.00% 3s
+Done!
+Statistics        Avg      Stdev        Max
+  Reqs/sec         7.11      16.51      67.93
+  Latency         1.40s   823.54ms      2.88s
+  HTTP codes:
+    1xx - 0, 2xx - 20, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     2.93KB/sBombarding http://localhost:8080/abstract with 20 request(s) using 100 connection(s)
+ 20 / 20 [========================================================================================================================================================================================================================================] 100.00% 3s
+Done!
+Statistics        Avg      Stdev        Max
+  Reqs/sec         6.79      15.98      53.69
+  Latency         1.42s      0.85s      2.96s
+  HTTP codes:
+    1xx - 0, 2xx - 20, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:     2.84KB/s   
+```
