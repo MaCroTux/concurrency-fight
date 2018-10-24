@@ -21,9 +21,42 @@ $app->get('/abstract', function (Request $request, Response $response, array $ar
     $storage                         = new \Abstraction\Infrastructure\FileStorage($formatter, 'data.json');
     $sumPairNumberGreteThatThousands = new \Abstraction\Domain\SumPairNumberGreteThatThousandsService();
 
-    $sut = new \Abstraction\Application\SumPairNumberGreaterThatThousandsUseCase($storage, $sumPairNumberGreteThatThousands);
+    $sumPairNumberGreaterThatThousandsUseCase = new \Abstraction\Application\SumPairNumberGreaterThatThousandsUseCase(
+        $storage,
+        $sumPairNumberGreteThatThousands
+    );
 
-    echo $sut->execute();
+    $sumPairNumberController = new \Abstraction\Infrastructure\Http\SumPairNumberController(
+        $sumPairNumberGreaterThatThousandsUseCase
+    );
+
+    echo $sumPairNumberController->index();
+});
+
+$app->get('/abstract/db', function (Request $request, Response $response, array $args) {
+    // Sample log message
+    $this->logger->info("Implement '/' route");
+
+    $storage                         = new \Abstraction\Infrastructure\DoctrineStorage($this->entityManager);
+    $sumPairNumberGreteThatThousands = new \Abstraction\Domain\SumPairNumberGreteThatThousandsService();
+
+    $sumPairNumberGreaterThatThousandsUseCase = new \Abstraction\Application\SumPairNumberGreaterThatThousandsUseCase(
+        $storage,
+        $sumPairNumberGreteThatThousands
+    );
+
+    $sumPairNumberController = new \Abstraction\Infrastructure\Http\SumPairNumberController(
+        $sumPairNumberGreaterThatThousandsUseCase
+    );
+
+    echo $sumPairNumberController->index();
+});
+
+$app->get('/implement/db', function (Request $request, Response $response, array $args) {
+    // Sample log message
+    $this->logger->info("Implement '/' route");
+
+    echo (new \Implement\Query())->execute();
 });
 
 $app->get('/[{name}]', function (Request $request, Response $response, array $args) {

@@ -17,3 +17,11 @@ $container['logger'] = function ($c) {
     $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
     return $logger;
 };
+
+// doctrine
+$container['entityManager'] = function ($c) {
+    $settings = $c->get('settings')['db'];
+    $config = \Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), true);
+    $entityManager = \Doctrine\ORM\EntityManager::create($settings['mysql'], $config);
+    return $entityManager;
+};
